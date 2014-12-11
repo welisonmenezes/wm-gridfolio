@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="description" content="WM Gridfolio - Plugin jQuery para galeria de conteúdo estilo portfólio.">
+		<meta name="keywords" content="Galeria, portfólio, portfolio, plungin, jquery, galery">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+
+		<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+		<link rel="stylesheet" href="assets/css/bootstrap-theme.min.css">
+		<link rel="stylesheet" href="assets/css/app.css">
+
+		<link rel="stylesheet" href="assets/syntaxhighlighter/styles/shCore.css">
+		<link rel="stylesheet" href="assets/syntaxhighlighter/styles/shCoreDefault.css">
+
+		<script type="text/javascript" src="assets/syntaxhighlighter/scripts/shCore.js"></script>
+		<script type="text/javascript" src="assets/syntaxhighlighter/scripts/shBrushJScript.js"></script>
+		<script type="text/javascript" src="assets/syntaxhighlighter/scripts/shBrushXml.js"></script>
+
+		<title>WM Gridfolio - Plugin jQuery para galeria de conteúdo estilo portfólio.</title>
+
+		<!--[if lt IE 9]>
+			<script type="text/javascript" src="assets/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+
+		<nav class="navbar navbar-inverse">
+			<div class="container">
+				<div id="navbar" class="collapse navbar-collapse">
+					<ul class="nav navbar-nav">
+						<li><a href="index.html" title="Home">Home</a></li>
+						<li><a href="init.html" title="Inicialização">Inicialização</a></li>
+						<li class="active"><a href="config.html" title="Configurações">Configurações</a></li>
+                        <li><a href="exemplo.html" title="Exemplo">Exemplo</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+
+		<div class="container">
+
+			<div class="row">
+
+			  	<div class="col-sm-12">
+
+			  		<div class="btn-group btn-group-justified">
+				    	<a href="#" target="_blank" class="btn btn-primary" title="WM Gridfolio no Github">GITHUB</a>
+
+				    	<a href="https://twitter.com/WelisonMenezes" target="_blank" class="btn btn-primary" title="Perfil no Twitter">TWITTER</a>
+
+				    	<a href="http://welisonmenezes.com.br/" target="_blank" class="btn btn-primary" title="Portifólio Welison Menezes">WEBSITE</a>
+				    </div>
+
+			  		<article class="body">
+			  			<h1>
+			  				WM Gridfolio - Plugin jQuery para galeria de conteúdo estilo portfólio.
+			  			</h1>
+			  			<p>
+			  				Opções de configuração do plugin WM Gridfolio.
+			  			</p>
+			  			<hr>
+
+			  			<h3>
+			  				Objetos principais
+			  			</h3>
+			  			<p>
+			  				Os seguintes objetos são os objetos de primeiro nível para a configuração e customização do plugin WM Gridfolio. Exemplo:
+			  			</p>
+			  			<pre class="brush: js;">
+				  			$(document).ready(function(){
+								$('.my-grid').WMGridfolio({
+									selectors : {},
+									thumbnail : {},
+									details   : {},
+									config    : {},
+									callbacks : {}
+								});
+							});
+						</pre><br><br>
+
+						<dl class="dl-horizontal">
+							<dt style="text-align:left;">selectors</dt>
+							<dd>
+								<p>
+									Objeto que configura os seletores dos elementos usados no plugin. Use apenas classes. <strong> Se customizar os seletores você deverá editar o css do plugin com as novas classes correspondentes</strong>. <br>Exemplo:
+								</p>
+								<pre class="brush: js;">
+									$('.my-grid').WMGridfolio({
+										selectors : {
+											item 	  : "wmg-item",
+											thumbnail : 'wmg-thumbnail',
+										}
+									});
+								</pre>
+							</dd>
+							<dt style="text-align:left;">thumbnail</dt>
+							<dd>
+								<p>
+									Objeto que configura as opções do thumbnail. <br>Exemplo:
+								</p>
+								<pre class="brush: js;">
+									$('.my-grid').WMGridfolio({
+										thumbnail : {
+											columns : 6,
+										}
+									});
+								</pre>
+							</dd>
+							<dt style="text-align:left;">details</dt>
+							<dd>
+								<p>
+									Objeto que configura as opções do detalhe. <br>Exemplo:
+								</p>
+								<pre class="brush: js;">
+									$('.my-grid').WMGridfolio({
+										details : {
+											minHeight : 400,
+										}
+									});
+								</pre>
+							</dd>
+							<dt style="text-align:left;">config</dt>
+							<dd>
+								<p>
+									Objeto que configura as opções gerais do plugin. <br>Exemplo:
+								</p>
+								<pre class="brush: js;">
+									$('.my-grid').WMGridfolio({
+										config : {
+											openToTop : true,
+										}
+									});
+								</pre>
+							</dd>
+						</dl><br><br>
+
+
+						<h3>
+							Seletores dos elementos
+						</h3>
+						<p>
+							Os seletores para os elementos do plugin devem ser classes css. As seguintes opções são para o objeto <strong>selectors</strong>
+						</p>
+
+						<table class="table table-bordered">
+							<thead>
+								<tr>
+								  	<th>
+								  		atributo
+								  	</th>
+								  	<th style="width:70%;">
+								  		Descrição
+								  	</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>
+										<em>item</em>
+									</td>
+									<td style="width:70%;">
+										Seletor para os itens do plugin. Default 
+										<em>
+											"wmg-item"
+										</em>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<em>thumbnail</em>
+									</td>
+									<td style="width:70%;">
+										Seletor para os thumbnails do plugin. Default 
+										<em>
+											"wmg-thumbnail"
+										</em>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<em>details</em>
+									</td>
+									<td style="width:70%;">
+										Seletor para o box de detalhes do plugin. Default 
+										<em>
+											"wmg-details"
+										</em>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<em>close</em>
+									</td>
+									<td style="width:70%;">
+										Seletor para o botão de fechar o detalhe. Default 
+										<em>
+											"wmg-close"
+										</em>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<em>arrow</em>
+									</td>
+									<td style="width:70%;">
+										Seletor para a seta que liga o detalhe ao thumbnail. Default 
+										<em>
+											"wmg-arrow"
+										</em>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+
+						<p>Exemplo:</p>
+
+						<pre class="brush: js;">
+							$('.my-grid').WMGridfolio({
+								selectors : {
+				                    item            : 'wmg-item',
+				                    thumbnail       : 'wmg-thumbnail',
+				                    details         : 'wmg-details',
+				                    close           : 'wmg-close',
+				                    arrow           : 'wmg-arrow'
+				                }
+							});
+						</pre><br><br>
+
+
+						<h3>
+							Configurando o thumbnail
+						</h3>
+						<p>
+							Veja agora como customizar algumas opçoes do thumbnial. As seguintes opções são para o objeto <strong>thumbnail</strong>
+						</p>
+
+						<table class="table table-bordered">
+							<thead>
+								<tr>
+								  	<th>
+								  		atributo
+								  	</th>
+								  	<th style="width:70%;">
+								  		Descrição
+								  	</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>
+										<em>columns</em>
+									</td>
+									<td style="width:70%;">
+										Configura o máximo de colunas para o grid. Default 
+										<em>
+											6
+										</em>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<em>minSize</em>
+									</td>
+									<td style="width:70%;">
+										Configura a largura e altura mínimas para o thumbnail. Default 
+										<em>
+											100
+										</em>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<em>margin</em>
+									</td>
+									<td style="width:70%;">
+										Configura a margem entre os thumbnail. Default 
+										<em>
+											5
+										</em>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+
+						<p>Exemplo:</p>
+
+						<pre class="brush: js;">
+							$('.my-grid').WMGridfolio({
+								thumbnail : {
+				                    columns : 6,
+				                    minSize : 100,
+				                    margin   : 5
+				                }
+							});
+						</pre><br><br>
+
+
+						<h3>
+							Configurando o box de detalhe
+						</h3>
+						<p>
+							Veja agora como customizar algumas opçoes do box de detalhe. As seguintes opções são para o objeto <strong>details</strong>
+						</p>
+
+						<table class="table table-bordered">
+							<thead>
+								<tr>
+								  	<th>
+								  		atributo
+								  	</th>
+								  	<th style="width:70%;">
+								  		Descrição
+								  	</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>
+										<em>minHeight</em>
+									</td>
+									<td style="width:70%;">
+										Configura a altura mínima do box de detalhes do grid. Default 
+										<em>
+											400
+										</em>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<em>speed</em>
+									</td>
+									<td style="width:70%;">
+										Configura a velociade da animação de abertura do box de detalhe. Default 
+										<em>
+											350
+										</em>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<em>full_w</em>
+									</td>
+									<td style="width:70%;">
+										Configura se o box de detalhes respeitará as margens esquerda e direta dos thumbnails (false) ou se terá a largura fullsize (true). Default 
+										<em>
+											false
+										</em>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+
+						<p>Exemplo:</p>
+
+						<pre class="brush: js;">
+							$('.my-grid').WMGridfolio({
+								details : {
+				                    minHeight : 400,
+				                    speed  : 350,
+				                    full_w : false
+				                }
+							});
+						</pre><br><br>
+
+						<h3>
+							Configurações gerais do plugin
+						</h3>
+						<p>
+							Veja agora as configurações gerais para o plugin. As seguintes opções são para o objeto <strong>config</strong>
+						</p>
+
+						<table class="table table-bordered">
+							<thead>
+								<tr>
+								  	<th>
+								  		atributo
+								  	</th>
+								  	<th style="width:70%;">
+								  		Descrição
+								  	</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>
+										<em>open</em>
+									</td>
+									<td style="width:70%;">
+										Configura a classe aplicada em alguns elementos quando o plugin está exibindo algum detalhe. Default 
+										<em>
+											"open"
+										</em>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<em>openToTop</em>
+									</td>
+									<td style="width:70%;">
+										Configura o plugin para rolar a página até o thumbnail clicado. Default 
+										<em>
+											true
+										</em>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<em>hasImg</em>
+									</td>
+									<td style="width:70%;">
+										Caso o thumbnail seja imagem algumas regras css serão aplicadas para centraliza-la vertical e horizontalmente. Default 
+										<em>
+											true
+										</em>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+
+						<p>Exemplo:</p>
+
+						<pre class="brush: js;">
+							$('.my-grid').WMGridfolio({
+								config : {
+				                    open          : 'open',
+				                    openToTop     : true,
+				                    hasImg        : true
+				                }
+							});
+						</pre><br><br>
+
+						<h3>
+							Status dos elementos
+						</h3>
+						<p>
+							Quando um detalhe do grid está aberto o plugin aplica a classe configurada em config.open em alguns elementos, indicando que existe um elemento aberto e qual elemento esta aberto. Dessa forma você poderá customizar o css de acordo com o status dos elementos. Veja um exemplo:
+						</p>
+
+						<pre class="brush: html;">
+							<!-- classe open no container geral -->
+							<div class="wmg-container open">
+
+								<!-- classe open no item aberto -->
+							    <div class="wmg-item open">
+
+							    	<!-- classe open no thumbnail do item -->
+							    	<div class="wmg-thumbnail open">
+							    		<div class="wmg-thumbnail-content"></div>
+							    		<div class="wmg-arrow"></div>
+							    	</div>
+
+							    	<!-- classe open no detalhe do item -->
+							    	<div class="wmg-details open">
+							    		<span class="wmg-close"></span>
+							    		<div class="wmg-details-content"></div>
+							    	</div>
+							    </div>
+
+							    <!-- os outros itens fechados -->
+							    <div class="wmg-item">
+							    	<div class="wmg-thumbnail">
+							    		<div class="wmg-thumbnail-content"></div>
+							    		<div class="wmg-arrow"></div>
+							    	</div>
+							    	<div class="wmg-details">
+							    		<span class="wmg-close"></span>
+							    		<div class="wmg-details-content"></div>
+							    	</div>
+							    </div>
+							    <div class="wmg-item">
+							    	<div class="wmg-thumbnail">
+							    		<div class="wmg-thumbnail-content"></div>
+							    		<div class="wmg-arrow"></div>
+							    	</div>
+							    	<div class="wmg-details">
+							    		<span class="wmg-close"></span>
+							    		<div class="wmg-details-content"></div>
+							    	</div>
+							    </div>
+
+							</div>
+						</pre><br><br>
+
+						<h3>
+							Callbacks
+						</h3>
+						<p>
+							O plugin executa alguns callbacks no carregamento do grid e na visualização do detalhe. As seguintes opções são para o objeto <strong>callbacks</strong>
+						</p>
+						<p>
+							Caso você pode configurar funçoes proprietárias  para serem executadas nesses callbacks. Para facilitar o plugin disponibiliza os seguintes elementos para serem usadas nessas funçoes. 
+						</p>
+
+						<dl class="dl-horizontal">
+							<dt>this.container</dt>
+							<dd>
+								Retorna o container principal de todos os intens.
+							</dd>
+							<dt>this.element</dt>
+							<dd>
+								Retorna todos os itens caso não haja algum detalhe aberto. Se houver um detalhe aberto retorna o item correspondente.
+							</dd>
+							<dt>this.thumbnail</dt>
+							<dd>
+								Retorna todos os thumbnails caso não haja algum detalhe aberto. Se houver um detalhe aberto retorna o thumbnail correspondente.
+							</dd>
+							<dt>this.details</dt>
+							<dd>
+								Retorna todos os box de detalhe caso não haja algum detalhe aberto. Se houver um detalhe aberto retorna o box de detalhe correspondente.
+							</dd>
+							<dt>this.close</dt>
+							<dd>
+								Retorna todos os botões de fechar caso não haja algum detalhe aberto. Se houver um detalhe aberto retorna o botão de fechar correspondente.
+							</dd>
+						</dl>
+
+						<p>Exemplo:</p>
+
+						<pre class="brush: js;">
+							$('.my-grid').WMGridfolio({
+								callbacks : {
+									CB_OpenDetail : function(){
+										console.log(this.container);
+										console.log(this.element);
+										console.log(this.thumbnail);
+										console.log(this.details);
+										console.log(this.close);
+									}
+								}
+							});
+						</pre><br><br>
+
+						<table class="table table-bordered">
+							<thead>
+								<tr>
+								  	<th>
+								  		atributo
+								  	</th>
+								  	<th style="width:40%;">
+								  		Descrição
+								  	</th>
+								  	<th>
+								  		Exemplo
+								  	</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>
+										<em>CB_LoadGrid</em>
+									</td>
+									<td style="width:40%;">
+										Executado após o carregamento do grid. Default 
+										<em>
+											false
+										</em>
+									</td>
+									<td>
+										<pre class="brush: js;">
+											$('.my-grid').WMGridfolio({
+												callbacks : {
+													CB_LoadGrid : function(){}
+												}
+											});
+										</pre>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<em>CB_ResizeGrid</em>
+									</td>
+									<td style="width:40%;">
+										Executado quando a janela é redimensionada. Default 
+										<em>
+											false
+										</em>
+									</td>
+									<td>
+										<pre class="brush: js;">
+											$('.my-grid').WMGridfolio({
+												callbacks : {
+													CB_ResizeGrid : function(){}
+												}
+											});
+										</pre>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<em>CB_OpenDetail</em>
+									</td>
+									<td style="width:40%;">
+										Executado quando um detalhe é aberto. Default 
+										<em>
+											false
+										</em>
+									</td>
+									<td>
+										<pre class="brush: js;">
+											$('.my-grid').WMGridfolio({
+												callbacks : {
+													CB_OpenDetail : function(){}
+												}
+											});
+										</pre>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<em>CB_CloseDetail</em>
+									</td>
+									<td style="width:40%;">
+										Executado quando um detalhe é fechado para a visualização de outro. Na prática é quando se clica em outro thumbnail. Default 
+										<em>
+											false
+										</em>
+									</td>
+									<td>
+										<pre class="brush: js;">
+											$('.my-grid').WMGridfolio({
+												callbacks : {
+													CB_CloseDetail : function(){}
+												}
+											});
+										</pre>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<em>CB_CloseAll</em>
+									</td>
+									<td style="width:40%;">
+										Executado quando um detalhe é fechado. Na prática é quando se clica no botão de fechar. Default 
+										<em>
+											false
+										</em>
+									</td>
+									<td>
+										<pre class="brush: js;">
+											$('.my-grid').WMGridfolio({
+												callbacks : {
+													CB_CloseAll : function(){}
+												}
+											});
+										</pre>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+
+						<p>Exemplo:</p>
+
+						<pre class="brush: js;">
+							$('.my-grid').WMGridfolio({
+								callbacks : {
+									CB_LoadGrid : function(){
+										console.log(this.container);
+										console.log(this.element);
+										console.log(this.thumbnail);
+										console.log(this.details);
+										console.log(this.close);
+									},
+									CB_ResizeGrid : function(){
+										console.log(this.container);
+										console.log(this.element);
+										console.log(this.thumbnail);
+										console.log(this.details);
+										console.log(this.close);
+									},
+									CB_OpenDetail : function(){
+										console.log(this.container);
+										console.log(this.element);
+										console.log(this.thumbnail);
+										console.log(this.details);
+										console.log(this.close);
+									},
+									CB_CloseDetail : function(){
+										console.log(this.container);
+										console.log(this.element);
+										console.log(this.thumbnail);
+										console.log(this.details);
+										console.log(this.close);
+									},
+									CB_CloseAll : function(){
+										console.log(this.container);
+										console.log(this.element);
+										console.log(this.thumbnail);
+										console.log(this.details);
+										console.log(this.close);
+									}
+								}
+							});
+						</pre><br><br>
+
+			  		</article>
+
+			  		<div class="btn-group btn-group-justified">
+				    	<a href="#" target="_blank" class="btn btn-primary" title="WM Gridfolio no Github">GITHUB</a>
+
+				    	<a href="https://twitter.com/WelisonMenezes" target="_blank" class="btn btn-primary" title="Perfil no Twitter">TWITTER</a>
+
+				    	<a href="http://welisonmenezes.com.br/" target="_blank" class="btn btn-primary" title="Portifólio Welison Menezes">WEBSITE</a>
+				    </div>
+			  		
+			  	</div>
+
+			</div>
+
+		</div><!-- /.container --> <br>
+
+		<br><br><br>
+
+		<footer class="footer">
+			<div class="container">
+			<p class="text-muted">&copy; Todos os direitos reservados. 2014 || Welison Menezes</p>
+			</div>
+		</footer>
+
+		<script type="text/javascript" src="assets/js/jquery-1.11.1.js"></script>
+		<script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+
+		<script type="text/javascript">
+			$(document).ready(function(){
+				SyntaxHighlighter.all();
+			});
+		</script>
+	</body>
+</html>

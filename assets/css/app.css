@@ -1,0 +1,13 @@
+.navbar {
+	border-radius: 0px !important;
+}
+article.body h1{
+	text-align: center;
+}
+.syntaxhighlighter .toolbar{
+	display: none !important;
+}
+
+.exemplo{
+	padding: 20px;
+}

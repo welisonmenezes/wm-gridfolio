@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="description" content="WM Gridfolio - Plugin jQuery para galeria de conteúdo estilo portfólio.">
+		<meta name="keywords" content="Galeria, portfólio, portfolio, plungin, jquery, galery">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+
+		<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+		<link rel="stylesheet" href="assets/css/bootstrap-theme.min.css">
+		<link rel="stylesheet" href="assets/css/app.css">
+
+		<link rel="stylesheet" href="assets/syntaxhighlighter/styles/shCore.css">
+		<link rel="stylesheet" href="assets/syntaxhighlighter/styles/shCoreDefault.css">
+
+		<script type="text/javascript" src="assets/syntaxhighlighter/scripts/shCore.js"></script>
+		<script type="text/javascript" src="assets/syntaxhighlighter/scripts/shBrushJScript.js"></script>
+		<script type="text/javascript" src="assets/syntaxhighlighter/scripts/shBrushXml.js"></script>
+
+		<title>WM Gridfolio - Plugin jQuery para galeria de conteúdo estilo portfólio.</title>
+
+		<!--[if lt IE 9]>
+			<script type="text/javascript" src="assets/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+
+		<nav class="navbar navbar-inverse">
+			<div class="container">
+				<div id="navbar" class="collapse navbar-collapse">
+					<ul class="nav navbar-nav">
+						<li><a href="index.html" title="Home">Home</a></li>
+						<li class="active"><a href="init.html" title="Inicialização">Inicialização</a></li>
+						<li><a href="config.html" title="Configurações">Configurações</a></li>
+                        <li><a href="exemplo.html" title="Exemplo">Exemplo</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+
+		<div class="container">
+
+			<div class="row">
+
+			  	<div class="col-sm-12">
+
+			  		<div class="btn-group btn-group-justified">
+				    	<a href="#" target="_blank" class="btn btn-primary" title="WM Gridfolio no Github">GITHUB</a>
+
+				    	<a href="https://twitter.com/WelisonMenezes" target="_blank" class="btn btn-primary" title="Perfil no Twitter">TWITTER</a>
+
+				    	<a href="http://welisonmenezes.com.br/" target="_blank" class="btn btn-primary" title="Portifólio Welison Menezes">WEBSITE</a>
+				    </div>
+
+			  		<article class="body">
+			  			<h1>
+			  				WM Gridfolio - Plugin jQuery para galeria de conteúdo estilo portfólio.
+			  			</h1>
+			  			<p>
+			  				Manual de uso do plugin WM Gridfolio de exibição de conteúdo no estilo portfólio
+			  			</p>
+			  			<hr>
+
+
+			  			<h3>
+			  				Instalação
+			  			</h3>
+
+			  			<p>
+			  				Inclua os scripts js e css necessários. Exemplo:
+			  			</p>
+
+				  		<pre class="brush: html;">
+				  			<link rel="stylesheet" href="jquery.wm-gridfolio-1.0.min.css">
+
+							<script src="jquery-1.9.1.min.js"></script>
+							<script src="jquery.wm-gridfolio-1.0.min.js"></script>
+						</pre>
+
+						<h3>
+			  				Inicialização
+			  			</h3>
+
+			  			<p>
+			  				Selecione o container da galeria. Exemplo:
+			  			</p>
+
+			  			<pre class="brush: js;">
+							$(document).ready(function(){
+								$('.my-grid').WMGridfolio();
+							});
+						</pre>
+
+						<h3>
+							O html
+						</h3>
+
+						<p>
+							O plugin espera uma estrutura html específica para funcionar corretamente. Veja abaixo um exemplo. 
+						</p>
+						<p>
+							É importante destacar que as classes devem ser iguais as configuradas no plugin e no arquivo css do plugin. O exemplo abaixo mostra um exemplo com as classes default.
+						</p>
+
+						<pre class="brush: html;">
+							<!-- container de todos os itens -->
+							<div class="wmg-container">
+
+								<!-- isto representa um item -->
+							    <div class="wmg-item">
+
+							    	<!-- thumbnail do item -->
+							    	<div class="wmg-thumbnail">
+							    		<div class="wmg-thumbnail-content">
+							                <!-- seu thumbnail aqui -->
+							    		</div>
+
+							    		<!-- seta que liga o detalhe ao item -->
+							    		<div class="wmg-arrow"></div>
+							    	</div>
+
+							    	<!-- detalhe do item -->
+							    	<div class="wmg-details">
+							    		<!-- botão para fechar o detalhe -->
+							    		<span class="wmg-close"></span>
+
+							    		<div class="wmg-details-content">
+							                <!-- seu conteúdo aqui -->
+							    		</div>
+							    	</div>
+							    </div>
+
+							</div>
+						</pre>
+
+
+			  		</article>
+
+			  		<div class="btn-group btn-group-justified">
+				    	<a href="#" target="_blank" class="btn btn-primary" title="WM Gridfolio no Github">GITHUB</a>
+
+				    	<a href="https://twitter.com/WelisonMenezes" target="_blank" class="btn btn-primary" title="Perfil no Twitter">TWITTER</a>
+
+				    	<a href="http://welisonmenezes.com.br/" target="_blank" class="btn btn-primary" title="Portifólio Welison Menezes">WEBSITE</a>
+				    </div>
+			  		
+			  	</div>
+
+			</div>
+
+		</div><!-- /.container --> <br>
+
+		<br><br><br>
+
+		<footer class="footer">
+			<div class="container">
+			<p class="text-muted">&copy; Todos os direitos reservados. 2014 || Welison Menezes</p>
+			</div>
+		</footer>
+
+		<script type="text/javascript" src="assets/js/jquery-1.11.1.js"></script>
+		<script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+
+		<script type="text/javascript">
+			$(document).ready(function(){
+				SyntaxHighlighter.all();
+			});
+		</script>
+	</body>
+</html>
