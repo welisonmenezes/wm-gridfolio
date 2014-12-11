@@ -400,6 +400,8 @@
                     $close       = $el.find('.'+options.selectors.close),
                     $arrow       = $el.find('.'+options.selectors.arrow);
 
+                $el.css({'filter':'alpha(opacity=0)', 'zoom':'1', 'opacity':'0'});
+
                 callbacks.container  = $el;
                 callbacks.element    = $item;
                 callbacks.thumbnail  = $thumb;
@@ -419,6 +421,7 @@
 
                     // callback load
                     callbacks.CB_LoadGrid();
+                    $el.css({'filter':'alpha(opacity=100)', 'zoom':'1', 'opacity':'1'});
                 }, 100);
 
                 // set columns in resize element
