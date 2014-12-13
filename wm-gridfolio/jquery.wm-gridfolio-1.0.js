@@ -170,7 +170,9 @@
                     
                     $parent.find('.'+d).stop().animate({
                         height : nauto_h+'px',
-                    }, speed).addClass(open);
+                    }, speed, function(){
+                        callbacks.CB_OpenDetail();
+                    }).addClass(open);
 
                     $parent.find('.'+a).show();
 
@@ -189,7 +191,7 @@
                     callbacks.thumbnail  = $el;
                     callbacks.details    = $parent.find('.'+d);
                     callbacks.close      = $parent.find('.'+close);
-                    callbacks.CB_OpenDetail();
+                    
                 },
                 /**
                  * close the detail of item opened
@@ -223,6 +225,8 @@
 
                         $(this).removeClass(open);
                         if($th) util.openContent($th);
+
+                        callbacks.CB_CloseDetail();
                     });
 
                     $el.parent().find('.'+a).hide();
@@ -233,7 +237,7 @@
                     callbacks.thumbnail  = ($th===false) ? $el.find('.'+t) : $th;
                     callbacks.details    = ($th===false) ? $el.find('.'+d) : $th.parent().find('.'+d);
                     callbacks.close      = ($th===false) ? $el.find('.'+close) : $th.parent().find('.'+close);
-                    callbacks.CB_CloseDetail();
+                    
                 }
             },
             /**

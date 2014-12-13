@@ -53,6 +53,9 @@
 				overflow: hidden;
 				width: 100%;
 			}
+			.wmg-thumbnail-content img{
+				vertical-align: middle;
+			}
 
 		.wmg-details{
 			left: 0px;
