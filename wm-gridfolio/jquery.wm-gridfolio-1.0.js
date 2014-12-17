@@ -404,8 +404,6 @@
                     $close       = $el.find('.'+options.selectors.close),
                     $arrow       = $el.find('.'+options.selectors.arrow);
 
-                $el.css({'filter':'alpha(opacity=0)', 'zoom':'1', 'opacity':'0'});
-
                 callbacks.container  = $el;
                 callbacks.element    = $item;
                 callbacks.thumbnail  = $thumb;
