@@ -20,4 +20,4 @@ WM Gridfolio - Plugin jQuery para galeria de conteúdo estilo portfólio
 
 ## Para mais detalhes visite a página do plugin
 
-[Website do Plugin WM Gridfolio](http://welisonmenezes.com.br/works/plugins/jquery/wm-gridfolio/)
+[Website do Plugin WM Gridfolio](http://welisonmenezes.com.br/extras/plugins/jquery/wm-gridfolio/)
