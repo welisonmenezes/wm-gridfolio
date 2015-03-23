@@ -133,6 +133,47 @@
 							</div>
 						</pre>
 
+						<h3>
+							O html só para exibição dos thumbnails
+						</h3>
+
+						<p>
+							Caso você queira apenas exibir os thumbnails sem a necessidade de exibir algum conteúdo ao ser clicado, deve-se setar isso na configuração do plugin. Ex:
+						</p>
+
+						<pre class="brush: js;">
+							$(document).ready(function(){
+								$('.my-grid').WMGridfolio({
+									config : {
+										onlyThumb : true
+									}
+								});
+							});
+						</pre>
+
+						<p>
+							Agora sua marcação html não precisa do elemento para o detalhe e nem da seta que liga o item ao detalhe. Ex:
+						</p>
+
+						<pre class="brush: html;">
+							<!-- container de todos os itens -->
+							<div class="wmg-container">
+
+								<!-- isto representa um item -->
+							    <div class="wmg-item">
+
+							    	<!-- thumbnail do item -->
+							    	<div class="wmg-thumbnail">
+							    		<div class="wmg-thumbnail-content">
+							                <!-- seu thumbnail aqui -->
+							    		</div>
+							    	</div>
+							    	
+							    </div>
+
+							</div>
+						</pre>
+
 
 			  		</article>
 

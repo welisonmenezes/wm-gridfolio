@@ -37,7 +37,9 @@
                 config : {
                     open          : 'open',
                     openToTop     : true,
-                    hasImg        : true
+                    hasImg        : true,
+                    keepOpen      : false,
+                    onlyThumb     : false
                 },
                 callbacks : {
                     CB_LoadGrid     : false,
@@ -164,17 +166,32 @@
                     $el.addClass(open);
                     $el.parent().addClass(open);
 
-                    $parent.animate({
-                        'margin-bottom' : nauto_h+'px'
-                    }, speed).addClass('wm-margin');
-                    
-                    $parent.find('.'+d).stop().animate({
-                        height : nauto_h+'px',
-                    }, speed, function(){
-                        callbacks.CB_OpenDetail();
-                    }).addClass(open);
+                    if(options.config.keepOpen===true)
+                    {
+                        $parent.css({
+                            'margin-bottom' : nauto_h+'px'
+                        }).addClass('wm-margin');
 
-                    $parent.find('.'+a).show();
+                        $parent.find('.'+d).css({
+                            'height' : nauto_h+'px'
+                        }).addClass(open);
+
+                        callbacks.CB_OpenDetail();
+                    }
+                    else
+                    {
+                        $parent.animate({
+                            'margin-bottom' : nauto_h+'px'
+                        }, speed).addClass('wm-margin');
+                        
+                        $parent.find('.'+d).stop().animate({
+                            height : nauto_h+'px',
+                        }, speed, function(){
+                            callbacks.CB_OpenDetail();
+                        }).addClass(open);
+
+                        $parent.find('.'+a).show();
+                    }
 
                     if(options.config.openToTop)
                     {
@@ -215,19 +232,43 @@
                     $el.find('.'+t).removeClass(open);
                     $el.find('.'+i).removeClass(open);
 
-                    $el.find('.wm-margin').animate({
-                        'margin-bottom' : '0px'
-                    }, (speed+50)).removeClass('.wm-margin');
+                    if(options.config.keepOpen===true)
+                    {
+                        var em =  $el.find('.wm-margin')
+                        var op = $el.find('.'+open);
 
-                    $el.find('.'+d+'.'+open).stop().animate({
-                        height : '0px'
-                    },speed, function(){
+                        em.removeClass('wm-margin');
 
-                        $(this).removeClass(open);
+                        op.removeClass(open);
+
                         if($th) util.openContent($th);
 
+                        em.css({
+                            'margin-bottom' : '0px'
+                        });
+
+                        op.css({
+                            'height' : '0px'
+                        });
+
                         callbacks.CB_CloseDetail();
-                    });
+                    }
+                    else
+                    {
+                        $el.find('.wm-margin').animate({
+                            'margin-bottom' : '0px'
+                        }, (speed+50)).removeClass('wm-margin');
+
+                        $el.find('.'+d+'.'+open).stop().animate({
+                            height : '0px'
+                        },speed, function(){
+
+                            $(this).removeClass(open);
+                            if($th) util.openContent($th);
+
+                            callbacks.CB_CloseDetail();
+                        });
+                    }
 
                     $el.parent().find('.'+a).hide();
 
@@ -411,8 +452,13 @@
                 callbacks.close      = $close;
 
                 funcs.staticCSS($el, $item, $thumb, $details, $arrow);
-                funcs.toogleContent($el, $thumb);
-                funcs.hideContent($close);
+
+                if(options.config.onlyThumb===false)
+                {
+                    funcs.toogleContent($el, $thumb);
+                    funcs.hideContent($close);
+                }
+                
                 
                 // set columns in ready document
                 funcs.dynamicCSS($el, $item, $thumb, $arrow);

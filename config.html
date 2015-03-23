@@ -415,6 +415,28 @@
 										</em>
 									</td>
 								</tr>
+								<tr>
+									<td>
+										<em>keepOpen</em>
+									</td>
+									<td style="width:70%;">
+										Mantém o box de detalhe aberto ao se clicar em outro thumbnail. Default 
+										<em>
+											false
+										</em>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<em>onlyThumb</em>
+									</td>
+									<td style="width:70%;">
+										Caso você queira apenas a exibição do thumbnail sem a necessidade de mostrar algum conteúdo ao se clicar nele. Default 
+										<em>
+											false
+										</em>
+									</td>
+								</tr>
 							</tbody>
 						</table>
 
@@ -425,7 +447,9 @@
 								config : {
 				                    open          : 'open',
 				                    openToTop     : true,
-				                    hasImg        : true
+				                    hasImg        : true,
+				                    keepOpen      : false,
+                    				onlyThumb     : false
 				                }
 							});
 						</pre><br><br>
