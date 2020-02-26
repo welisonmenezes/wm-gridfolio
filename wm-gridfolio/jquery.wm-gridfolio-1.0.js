@@ -185,20 +185,21 @@
                         }, speed).addClass('wm-margin');
                         
                         $parent.find('.'+d).stop().animate({
-                            height : nauto_h+'px',
+                            'height' : nauto_h+'px'
                         }, speed, function(){
                             callbacks.CB_OpenDetail();
                         }).addClass(open);
 
-                        $parent.find('.'+a).show();
                     }
+                    
+                    $parent.find('.'+a).show();
 
                     if(options.config.openToTop)
                     {
                         if($parent.offset())
                         {
                             var top = $parent.offset().top;
-                            $("html, body").animate({scrollTop:top}, '500');
+                            $("html, body").animate({'scrollTop' : 'top'}, '500');
                         }
                     }
 
@@ -232,24 +233,18 @@
                     $el.find('.'+t).removeClass(open);
                     $el.find('.'+i).removeClass(open);
 
+                    $el.parent().find('.'+a).hide();
+
                     if(options.config.keepOpen===true)
                     {
-                        var em =  $el.find('.wm-margin')
-                        var op = $el.find('.'+open);
-
-                        em.removeClass('wm-margin');
-
-                        op.removeClass(open);
-
-                        if($th) util.openContent($th);
-
-                        em.css({
+                        $el.find('.wm-margin').css({
                             'margin-bottom' : '0px'
-                        });
+                        }).removeClass('wm-margin');
 
-                        op.css({
+                        $el.find('.'+d+'.'+open).css({
                             'height' : '0px'
-                        });
+                        }).removeClass(open);
+						if($th) util.openContent($th);                        
 
                         callbacks.CB_CloseDetail();
                     }
@@ -260,7 +255,7 @@
                         }, (speed+50)).removeClass('wm-margin');
 
                         $el.find('.'+d+'.'+open).stop().animate({
-                            height : '0px'
+                            'height' : '0px'
                         },speed, function(){
 
                             $(this).removeClass(open);
@@ -269,8 +264,6 @@
                             callbacks.CB_CloseDetail();
                         });
                     }
-
-                    $el.parent().find('.'+a).hide();
 
                     // callback close detail
                     callbacks.container  = $el;
@@ -315,17 +308,17 @@
                         });
                         
                         $('.'+d+'.'+open).css({
-                            height : nauto_h+'px',
+                            'height' : nauto_h+'px',
                         });
                     }
 
                     $i.css({
-                        width : size+'px',
-                        height : size+'px',
+                        'width' : size+'px',
+                        'height' : size+'px',
                     });
 
                     $a.css({
-                        left : ar_pos+'px'
+                        'left' : ar_pos+'px'
                     });
 
                     if(options.config.hasImg)
@@ -416,7 +409,7 @@
                         margin  = options.thumbnail.margin;
 
                     $d.css({
-                        height   : '0px',
+                        'height'   : '0px',
                     });
 
                     $d.find('> div').css({
@@ -432,7 +425,7 @@
                     }
 
                     $i.css({
-                        padding : margin+'px'
+                        'padding' : margin+'px'
                     });
                 }
             };
